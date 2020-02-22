@@ -10,8 +10,8 @@ void setup() {
 void loop() {
   while(Serial.available() > 0)
   {
-    char a = Serial.read();
-    static_cast<int>(a);
+    int a = Serial.parseInt();
+    
     servo1.write(a);
   }
 
