@@ -1,23 +1,18 @@
 #include <Servo.h>
-Servo servo1;
-int num;
-void setup() {
-  servo1.attach(4);
 
+Servo servo1;
+
+void setup() {
+  Serial.begin(9600);
+  servo1.attach(4);
 }
 
 void loop() {
-  while (Servo.avalable)
+  while(Serial.available() > 0)
   {
-    char a = Servo.read();
+    char a = Serial.read();
     static_cast<int>(a);
-    if (a == 1)
-    {
-      servo1.write(num);
-      if (num == 360)
-      num = 0;
-      num = num + 30
-    }
+    servo1.write(a);
   }
 
 }
